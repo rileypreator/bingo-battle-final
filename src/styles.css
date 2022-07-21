@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+.twitch-purple {
+    color: #6441a5
+}
+
+.twitch-button {
+    background-color: #6441a5;
+    color: white;
+    border-radius: 3px;
+    margin: 1px;
+}
+
+.inline {
+    display: inline;
+}
+
+.small-padding {
+    margin: auto 0;
+}
+
+.bingo-grid {
+    width: 600px;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+
+}
+
+.box {
+    background-color: lightgrey;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.bingoCard {
+    width: 200px;
+    height: 200px;
+    line-height: 100px;
+    text-align: center;
+    text-justify: none;
+}

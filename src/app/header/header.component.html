@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Bingo Battle</a>
+        </div>
+        <div class="collapse navbar-collapse justify-content-between">
+            <ul class="nav navbar-nav d-flex flex-row">
+                <li routerLinkActive="active" class="p-2"> <a [routerLink]="['./games']">Games</a></li>
+                <li routerLinkActive="active" class="p-2"> <a [routerLink]="['./board']">Board</a></li>
+            </ul>
+            <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
+                    dropdown</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <a href="{{apiKey}}" ngbDropdownItem>Login</a>
+                    <hr>
+                    <a href="https://www.twitch.tv/" ngbDropdownItem class="twitch-button">Twitch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,48 @@
+<h1 *ngIf="activeGame;else invalid">{{activeGame.name}} is active</h1>
+<ng-template #invalid>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Oops!</strong>
+        <p class="inline">There is no active game. Please select one from the Board Tab by clicking <a class="inline "
+                routerLinkActive="active" (click)="board()"><br>Here<br></a></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true" href>&times;</span>
+        </button>
+    </div>
+</ng-template>
+
+<div *ngIf="activeGame;">
+    <div *ngIf="freeSpace == true; else noFreeSpaceBoard">
+        <tbody>
+            <tr *ngFor="let row of [0,1,2,3,4]">
+                <td *ngFor="let col of [0,1,2,3,4]">
+                    <div class="card text-center bingoCard" (click)="clickSpace(row, col, $event)">
+                        <div class="card-text">
+                            <div *ngIf="row == 2 && col == 2; else BingoChoice">
+                                Free Space
+                            </div>
+                            <ng-template #BingoChoice>
+                                {{bingoChoices[5*row+col]?.description}}
+                            </ng-template>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </div>
+
+    <ng-template #noFreeSpaceBoard>
+        <tbody>
+            <tr *ngFor="let row of [0,1,2,3,4]">
+                <td *ngFor="let col of [0,1,2,3,4]">
+                    <div class="card text-center bingoCard" (click)="clickSpace(row, col, $event)">
+                        <div class="card-text">
+                            {{bingoChoices[5*row+col]?.description}}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </ng-template>
+    <hr>
+    <button class="btn btn-success" (click)="checkWin()">Check for a win!</button>
+</div>

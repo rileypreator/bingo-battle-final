@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        <div class="h5">
+            {{game.name}}
+        </div>
+        <div class="buttons margin-left-right justify-content-between">
+            <a class="btn btn-info" [routerLink]="['edit']">Edit Game</a>
+            <a class="btn btn-danger" (click)="deleteGame()">Delete Game</a>
+            <a class="btn btn-success" (click)="startGame()">Start Game</a>
+            <a class="btn btn-warning" (click)="startGameFree()">Start Game with Free Space</a>
+
+        </div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let bingoChoice of bingoChoices">{{bingoChoice.description}}</li>
+    </ul>
+</div>
